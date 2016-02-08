@@ -1,0 +1,15 @@
+{% for track in objects_list%}
+                   {%if track.link %}
+                      <li>
+                          <a href="#" class="audiolink" data-src={{track.link}}>{{track.str}}</a>
+                          <img track_id="{{track.id}}" class="to-send action-icon" src="/static/images/telegram.png">
+                          {% if not track.liked %}
+                              <img track_id="{{track.id}}" class="to-like action-icon" src="/static/images/like.png">
+                          {% else %}
+                              <img track_id="{{track.id}}" class="to-like action-icon" src="/static/images/liked.png">
+                          {% endif %}
+                      </li>
+                   {%else%}
+                      {{track.str}} - В обработке <br>
+                   {% endif %}
+{% endfor %}
